@@ -1,0 +1,8 @@
+{
+  "name": "DeutschLink - Gamified AI German Tutor",
+  "description": "An interactive German language learning app for media and creative professionals, featuring AI-powered level assessment, audio feedback, and gamified XP/streak tracking.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
