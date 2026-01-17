@@ -18,6 +18,7 @@ export interface UserProfile {
   industry: Industry;
   name: string;
   masteryScores: Record<string, number>; // Level -> Score
+  moduleProgress: Record<string, Record<string, number>>; // Level -> Module Name -> Score
 }
 
 export interface GroundingSource {

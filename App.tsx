@@ -246,7 +246,8 @@ const App: React.FC = () => {
     streak: 1,
     industry: 'Design',
     name: 'Creative Learner',
-    masteryScores: {}
+    masteryScores: {},
+    moduleProgress: {}
   });
   const [messages, setMessages] = useState<Message[]>([
     { role: 'model', content: "Willkommen! 🇩🇪 Ready to launch your German journey?\n\n- **Complete Fresher?** Click 'Start Learning' on A1 to begin without a test.\n- **Already Know Some?** Take a 'Diagnostic Assessment' to find your place." }
@@ -267,7 +268,7 @@ const App: React.FC = () => {
     if (savedData) {
       try {
         const parsed = JSON.parse(savedData);
-        if (parsed.profile) setProfile(parsed.profile);
+        if (parsed.profile) setProfile(p => ({...p, ...parsed.profile}));
         if (parsed.messages) setMessages(parsed.messages);
       } catch (error) {}
     }
@@ -282,6 +283,23 @@ const App: React.FC = () => {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, loading, showDashboard]);
+  
+  const simulatedModuleProgress = useMemo(() => {
+    const progressData: Record<string, Record<string, number>> = {};
+    for (const level of levels) {
+        const levelScore = profile.masteryScores[level];
+        if (typeof levelScore === 'number' && levelScore > 0) {
+            progressData[level] = {};
+            const curriculum = CURRICULUM_MAP[level];
+            for (const topic of curriculum.topics) {
+                const randomFactor = (Math.random() - 0.5) * 40; // +/- 20%
+                const topicProgress = Math.max(0, Math.min(100, levelScore + randomFactor));
+                progressData[level][topic] = Math.round(topicProgress);
+            }
+        }
+    }
+    return progressData;
+  }, [profile.masteryScores]);
 
   const handleSend = async (textOverride?: string) => {
     const text = textOverride || input;
@@ -535,16 +553,33 @@ const App: React.FC = () => {
                           <p className="text-[11px] text-slate-400 leading-relaxed italic">{curriculum.syllabus}</p>
                         </div>
                         <div>
-                          <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest block mb-2">Key Modules</span>
-                          <div className="flex flex-wrap gap-1.5">
-                            {curriculum.topics.slice(0, 4).map((t, idx) => (
-                              <span key={idx} className="px-2 py-0.5 bg-slate-800 rounded text-[8px] text-slate-500 border border-slate-700">{t}</span>
-                            ))}
+                          <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest block mb-2">Module Progress</span>
+                          <div className="space-y-3 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                            {curriculum.topics.map((topic, idx) => {
+                              const moduleProgress = (simulatedModuleProgress[lvl] && simulatedModuleProgress[lvl][topic]) || 0;
+                              const isHeader = topic.endsWith("Foundations") || topic.endsWith("Expansion") || topic.endsWith("Situations") || topic.endsWith("Skills") || topic.endsWith("Communication") || topic.endsWith("Expression") || topic.endsWith("Structure") || topic.endsWith("Domains") || topic.endsWith("Mastery") || topic.endsWith("Style");
+                              
+                              if (isHeader) {
+                                  return <h5 key={idx} className="text-[9px] font-black text-indigo-400 uppercase tracking-widest pt-3 pb-1 border-b border-slate-800">{topic}</h5>
+                              }
+                              
+                              return (
+                                <div key={idx} title={`${moduleProgress}% complete`}>
+                                  <div className="flex justify-between items-center mb-1">
+                                    <span className="text-[10px] font-bold text-slate-400">{topic}</span>
+                                    <span className="text-[9px] font-mono font-bold text-slate-500">{moduleProgress}%</span>
+                                  </div>
+                                  <div className="w-full bg-slate-800/50 rounded-full h-1 overflow-hidden">
+                                    <div className="bg-indigo-500 h-1 rounded-full transition-all" style={{ width: `${moduleProgress}%` }} />
+                                  </div>
+                                </div>
+                              );
+                            })}
                           </div>
                         </div>
                         <div className="pt-2 border-t border-slate-800">
                           <div className="flex justify-between text-[8px] font-black uppercase tracking-widest text-slate-600 mb-1.5">
-                            <span>Mastery Progress</span>
+                            <span>Overall Mastery</span>
                             <span>{progress}%</span>
                           </div>
                           <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">

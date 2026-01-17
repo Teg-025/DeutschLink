@@ -4,37 +4,95 @@ import { CEFRLevel } from './types';
 export const CURRICULUM_MAP = {
   [CEFRLevel.A1]: {
     title: "Breakthrough",
-    topics: ["Greetings & Intro", "Present Tense", "Nominative Case", "Accusative Case", "Basic Word Order", "Numbers 1-100", "Family Vocab"],
+    topics: [
+      "Grammar & Language Foundations", "Greetings & Introductions", "Common Daily Phrases",
+      "Numbers (1–20)", "Numbers (20–100)", "Alphabet & Pronunciation", "Personal Pronouns (Nominative)",
+      "Verb “sein” & “haben”", "Regular Verb Conjugation (Present)", "Irregular Verb Conjugation (Present)",
+      "Sentence Structure – Main Clauses", "Definite Articles", "Indefinite Articles", "Negative Articles",
+      "W-Questions", "Time – Official & Unofficial", "Accusative Case – Articles", "Dative Case – Articles",
+      "Modal Verb “möchten”", "Separable Verbs – Introduction", "Imperative Sentences",
+      "Vocabulary & Situations", "Family & Relationships", "Daily Routine", "Food & Restaurant",
+      "Shopping & Supermarket", "Weather", "Health & Doctor", "Transport & Directions",
+      "Apartment & Living", "Bank & Post Office", "Travel & Tickets",
+      "Goethe Exam Skills", "Lesen – Simple Notices & Forms", "Hören – Basic Conversations",
+      "Schreiben – Short Messages & Forms", "Sprechen – Introducing Yourself", "Sprechen – Asking & Answering Questions"
+    ],
     description: "Build your foundation with basic daily interactions.",
     syllabus: "Focuses on immediate needs: introducing yourself, ordering food, and basic professional greetings."
   },
   [CEFRLevel.A2]: {
     title: "Waystage",
-    topics: ["Perfect Tense (Past)", "Dative Case", "Modal Verbs", "Reflexive Verbs", "Connectors", "Job Interviews", "Daily Routine"],
+    topics: [
+      "Grammar Expansion", "Self-Introduction (Exam Style)", "Character Traits & Descriptions",
+      "Subordinate Clauses – dass", "Subordinate Clauses – weil / da", "Adjective Endings – Nominative",
+      "Adjective Endings – Accusative", "Adjective Endings – Dative", "Genitive Case", "Adjective Endings – Genitive",
+      "Comparative & Superlative", "Subordinate Clauses – wenn", "Subordinate Clauses – obwohl",
+      "deshalb & trotzdem", "Verb werden", "Indirect Questions", "Relative Clauses (All Cases)",
+      "Indefinite Pronouns", "Präteritum – Modal Verbs", "Präteritum – Regular Verbs", "Präteritum – Irregular Verbs",
+      "Infinitive with zu", "Infinitive without zu", "Past Perfect (Perfekt)", "Two-Way Prepositions",
+      "Passive Voice – Introduction", "Konjunktiv II – Polite Requests",
+      "Vocabulary & Communication", "Childhood & Past Experiences", "City vs Countryside",
+      "Emotions & Feelings", "Career & Dream Job", "Picture Description", "Recipes & Instructions",
+      "Weather Forecast", "Planning Together",
+      "Goethe Exam Skills", "Lesen – Emails & Ads", "Hören – Announcements & Dialogues",
+      "Schreiben – SMS & Emails", "Schreiben – Semi-Formal Letter", "Sprechen – Picture & Situation", "Sprechen – Planning Task"
+    ],
     description: "Start describing your past and expressing needs.",
     syllabus: "Covers routine tasks, background, and immediate environment. Essential for basic workplace communication."
   },
   [CEFRLevel.B1]: {
     title: "Threshold",
-    topics: ["Preterite Tense", "Genitive Case", "Subordinate Clauses", "Future I", "Passive Voice", "Negotiations", "Travel Plans"],
+    topics: [
+      "Advanced Grammar", "Reflexive Verbs", "Reciprocal Verbs", "Noun-Verb Combinations", "Verb lassen – Uses",
+      "Passive with sich lassen", "Weak Nouns (N-Declension)", "Genitive Prepositions", "Da-Compounds", "Wo-Compounds",
+      "indem & dadurch, dass", "Final Clauses – um…zu / damit", "ohne…zu / ohne…dass", "anstatt…zu / anstatt…dass",
+      "nicht / kein + brauchen + zu", "Partizip I", "Partizip II", "Zustandspassiv", "Konjunktiv II – Forms",
+      "Konjunktiv II – Past", "Wishes & Hypotheses",
+      "Writing & Expression", "Opinion Writing", "Semi-Formal Letter (Exam)", "Argument Structure",
+      "Goethe Exam Skills", "Lesen – Articles & Reports", "Hören – Interviews & Discussions", "Schreiben – Opinion Text",
+      "Sprechen – Presentation", "Sprechen – Discussion"
+    ],
     description: "Navigate most travel situations and express opinions.",
     syllabus: "Dealing with most situations likely to arise whilst travelling. Can describe dreams, hopes and ambitions."
   },
   [CEFRLevel.B2]: {
     title: "Vantage",
-    topics: ["Advanced Passive", "Nominalization", "Subjunctive II", "Professional Emailing", "Client Pitching", "Abstract Discussions"],
+    topics: [
+      "Grammar & Structure", "Discontinuous Conjunctions", "Sentence Logic & Emphasis", "Separable Prefixes (All Groups)",
+      "Inseparable Prefixes", "Passive Substitutes", "Advanced Negation", "Indefinite Pronouns (Advanced)",
+      "irgend-Forms", "Pronoun es – All Uses", "Modal Particles",
+      "Academic Language", "Advanced Connectors", "Formal vs Informal Register", "Argumentation Techniques",
+      "Goethe Exam Skills", "Lesen – Complex Texts", "Hören – Radio & Interviews", "Schreiben – Formal Essay",
+      "Schreiben – Complaint / Request", "Sprechen – Argument & Debate"
+    ],
     description: "The professional baseline for working in Germany.",
     syllabus: "Understanding complex text on both concrete and abstract topics, including technical discussions in your field."
   },
   [CEFRLevel.C1]: {
     title: "Advanced Mastery",
-    topics: ["Complex Syntax", "Nuance & Irony", "Academic Writing", "Dialect Awareness", "Strategic Marketing Vocab"],
+    topics: [
+      "Advanced Grammar", "Complex Subordinate Clauses", "Advanced Verb Positioning", "Konjunktiv II – Advanced",
+      "Passive – Formal Registers", "Indirect Speech with Time Shift", "Relative Clauses with Prepositions",
+      "Nominalization", "Modal Infinitive Constructions", "Advanced Prepositions",
+      "Vocabulary Domains", "Academic & Research", "Business & Corporate", "Politics & Law",
+      "Science & Technology", "Culture & Media", "Idiomatic Language",
+      "Goethe Exam Skills", "Lesen – Academic Articles", "Hören – Lectures & Panels", "Schreiben – Essays & Reports",
+      "Schreiben – Formal Correspondence", "Sprechen – Presentations", "Sprechen – Moderated Discussions"
+    ],
     description: "Understand implicit meanings and express fluid ideas.",
     syllabus: "Can express ideas fluently and spontaneously without much obvious searching for expressions."
   },
   [CEFRLevel.C2]: {
     title: "Proficiency",
-    topics: ["Literary Analysis", "Philology", "Native Spontaneity", "Specialist Vocab", "Philosophical Discourse"],
+    topics: [
+      "High-Level Grammar & Style", "Nested & Rhetorical Structures", "Elevated Konjunktiv II", "Future Perfect & Hypotheticals",
+      "Stylistic Passive", "Highly Complex Relative Clauses", "Advanced Nominalization", "Stylistic Cohesion & Register",
+      "Regional & Stylistic Variants",
+      "Vocabulary Mastery", "Academic & Scientific", "Legal & Economic", "Philosophy & Abstract Thought",
+      "Literature & Cultural Criticism", "Journalism & Rhetoric",
+      "Goethe Exam Skills", "Lesen – Literary & Academic Texts", "Hören – Native-Speed Discourse",
+      "Schreiben – Academic & Editorial Texts", "Sprechen – High-Level Debate", "Stylistic Precision & Editing"
+    ],
     description: "Near-native fluency across all domains.",
     syllabus: "Can understand with ease virtually everything heard or read. Can summarize information from different sources."
   },
